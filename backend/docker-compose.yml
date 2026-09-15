@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - DATABASE_URL=postgresql://postgres:Mysql%40123@mydb:5432/mydb
+    depends_on:
+      - db  
+    volumes:
+      - ./:/app/
+      - /app/node_modules
+
+
+  db:
+    image: postgres:15
+    restart: always
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Mysql@123
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"

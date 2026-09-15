@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:frontend/features/auth/pages/login_page.dart';
 
 class SignupPage extends StatefulWidget {
+   static MaterialPageRoute route() => MaterialPageRoute(builder: (context) => const SignupPage());
   const SignupPage({super.key});
 
   @override
@@ -24,7 +26,13 @@ class _SignupPageState extends State<SignupPage> {
   }
 
 
-
+  void signUser(){
+    if(formKey.currentState!.validate()){
+      print("Name: ${nameController.text}");
+      print("Email: ${emailController.text}");
+      print("Password: ${passwordController.text}");
+    }
+  }
   
 
   @override
@@ -62,7 +70,7 @@ class _SignupPageState extends State<SignupPage> {
                   hintText: 'Email',
               ),
                validator: (value) {
-                if (value == null || value.trim().isEmpty  || value.trim().contains("@")) {
+                if (value == null || value.trim().isEmpty  || !value.trim().contains("@")) {
                   return "Email field is invalid!";
                 }
                 return null;
@@ -75,7 +83,7 @@ class _SignupPageState extends State<SignupPage> {
                   hintText: 'Password ',
               ),
                validator: (value) {
-                if (value == null || value.trim().isEmpty  || value.trim().length < 6) {
+                if (value == null || value.trim().isEmpty  || value.trim().length <= 6) {
                   return "Password field is invalid!";
                 }
                 return null;
@@ -83,25 +91,30 @@ class _SignupPageState extends State<SignupPage> {
               ),
               const SizedBox(height: 15),
               ElevatedButton(
-            onPressed: () {},
+            onPressed: signUser,
             child: const Text(
               'SING UP',
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
           ), 
-             RichText(
-            text: TextSpan(
-              text: 'Already have an account? ',
-              style: Theme.of(context).textTheme.titleMedium,
-              children: [
-                TextSpan(
-          text: 'Sign IN', 
-          style:TextStyle(fontWeight: FontWeight.bold,),
-                 
-                ),
-              ],
-            ),
-          ),
+             GestureDetector(
+              onTap: (){
+                Navigator.of(context).push(LoginPage.route());
+              },
+               child: RichText(
+                           text: TextSpan(
+                text: 'Already have an account? ',
+                style: Theme.of(context).textTheme.titleMedium,
+                children: const [
+                  TextSpan(
+                         text: 'Sign IN', 
+                         style:TextStyle(fontWeight: FontWeight.bold,),
+                   
+                  ),
+                ],
+                           ),
+                         ),
+             ),
             ],
           ),
         ),
