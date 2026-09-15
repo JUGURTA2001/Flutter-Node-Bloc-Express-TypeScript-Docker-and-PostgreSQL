@@ -8,5 +8,7 @@
     ".git/**"
   ],
   "exec": "tsx src/index.ts",
+  "legacyWatch": true,
+  "polling": true,
   "delay": 500
 }

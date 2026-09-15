@@ -1,16 +1,15 @@
 import express from 'express';
-import authRouter = require('./routes/auth');
+import authRouter from './routes/auth';   // ← changement ici
 
 const app = express();
 
-app.use("/auth",authRouter)
+
+app.use("/auth", authRouter)
 
 app.get("/", (req, res) => {
-    res.send("Welcom to my app !!!!!!!!!!!!!!!")
+    res.send("Welcome to my app !!!!!!!4!!!!")
 })
 
 app.listen(8000, () => {
-    console.log("server started on ort 8000");
+    console.log("server started on port 8000");  // ← petite correction au passage
 })
-
-
