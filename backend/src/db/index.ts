@@ -4,4 +4,4 @@ const  pool=new Pool({
     connectionString:"postgresql://postgres:Mysql@123@mydb:5432/mydb",
 })
 
-export default  db = drizzle(pool)
+export const   db = drizzle(pool)
