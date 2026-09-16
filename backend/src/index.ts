@@ -3,11 +3,12 @@ import authRouter from './routes/auth';   // ← changement ici
 
 const app = express();
 
+app.use(express.json());
 
 app.use("/auth", authRouter)
 
 app.get("/", (req, res) => {
-    res.send("Welcome to my app !!!!!!!4!!!!")
+    res.send("Welcome to my app !!!!!t!!!")
 })
 
 app.listen(8000, () => {
