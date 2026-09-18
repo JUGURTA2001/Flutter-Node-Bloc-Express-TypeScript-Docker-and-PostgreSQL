@@ -1,0 +1,16 @@
+1 commande : C:\Flutter-Node-Bloc-Express-TypeScript-Docker-and-PostgreSQL\backend> docker compose up --build  
+or docker compose down 
+
+2 
+PS C:\Flutter-Node-Bloc-Express-TypeScript-Docker-and-PostgreSQL\backend\src> npx drizzle-kit push  
+3 
+flutter run 
+
+
+// powershell   
+chenge ip dans protble :
+
+& "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" reverse tcp:8000 tcp:8000
+
+ poru verfier 
+  & "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" reverse --list
