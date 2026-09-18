@@ -1,73 +1,50 @@
-# Flutter + Node.js + BLoC + Express + TypeScript + Docker + PostgreSQL
+<p align="center">
+  <a href="README.md">🇫🇷 Français</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="README.en.md"><strong>🇬🇧 English</strong></a>
+</p>
 
-Application full-stack composée d’un frontend mobile/web Flutter avec architecture BLoC et d’un backend API REST développé en Node.js/Express/TypeScript.  
-Le projet inclut également une base PostgreSQL et une configuration Docker pour faciliter le développement et le déploiement local.
+<h1 align="center">Flutter Task App</h1>
 
-## Vue d’ensemble
+<p align="center">
+  A full-stack task management application built with Flutter, BLoC, Node.js, Express, TypeScript, PostgreSQL, and Docker.
+</p>
 
-Ce projet permet de gérer une application de tâches avec :
-- authentification utilisateur
-- création, consultation et suppression de tâches
-- stockage des données dans PostgreSQL
-- communication entre le frontend Flutter et le backend via API REST
-- environnement de développement conteneurisé avec Docker
+<p align="center">
+  <a href="https://github.com/JUGURTA2001/Flutter-Node-Bloc-Express-TypeScript-Docker-and-PostgreSQL"><img src="https://img.shields.io/github/stars/JUGURTA2001/Flutter-Node-Bloc-Express-TypeScript-Docker-and-PostgreSQL?style=flat" alt="GitHub stars"></a>
+  <a href="https://github.com/JUGURTA2001/Flutter-Node-Bloc-Express-TypeScript-Docker-and-PostgreSQL"><img src="https://img.shields.io/github/license/JUGURTA2001/Flutter-Node-Bloc-Express-TypeScript-Docker-and-PostgreSQL?style=flat" alt="License"></a>
+  <img src="https://img.shields.io/badge/Flutter-3.12%2B-02569B?logo=flutter&logoColor=white" alt="Flutter">
+  <img src="https://img.shields.io/badge/Node.js-TypeScript-3178C6?logo=typescript&logoColor=white" alt="Node.js TypeScript">
+  <img src="https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL">
+</p>
 
-## Stack technique
+## Overview
 
-### Frontend
-- Flutter
-- Dart
-- BLoC (flutter_bloc)
-- Material Design
-- HTTP client pour les appels API
-- SQLite local (via sqflite)
-- Shared Preferences
-- Connectivity Plus
+This repository contains a task management application made of two main parts:
 
-### Backend
-- Node.js
-- Express
-- TypeScript
-- PostgreSQL
-- Drizzle ORM
-- JWT pour l’authentification
-- bcrypt pour le hashage des mots de passe
+- **Frontend**: a Flutter application using BLoC/Cubit architecture.
+- **Backend**: a Node.js REST API built with Express and TypeScript.
+- **Database**: PostgreSQL accessed through Drizzle ORM.
+- **Local environment**: Docker Compose.
 
-### Infrastructure
-- Docker
-- Docker Compose
-- PostgreSQL 15
+The application supports registration, login, JWT token management, task creation, and task synchronization.
 
-## Architecture du projet
+## Features
 
-```text
-.
-├── backend/
-│   ├── src/
-│   │   ├── db/
-│   │   ├── middleware/
-│   │   ├── routes/
-│   │   ├── drizzle.config.ts
-│   │   └── index.ts
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── nodemon.json
-├── frontend/
-│   ├── lib/
-│   │   ├── core/
-│   │   ├── features/
-│   │   ├── models/
-│   │   └── main.dart
-│   ├── android/
-│   ├── ios/
-│   ├── linux/
-│   ├── macos/
-│   ├── web/
-│   ├── windows/
-│   ├── pubspec.yaml
-│   └── README.md
-├── .vscode/
-├── text.text
-└── README.md
+- User registration and login
+- JWT-based authentication
+- Password hashing with bcrypt
+- Task creation, listing, and deletion
+- Task synchronization
+- Flutter state management with `flutter_bloc`
+- Local storage and cross-platform Flutter support
+- Simple development setup with Docker and PostgreSQL
+
+## Architecture
+
+```mermaid
+flowchart LR
+    A[Flutter Application] -->|HTTP / JSON| B[Express API]
+    B --> C[JWT + Auth Middleware]
+    B --> D[Drizzle ORM]
+    D --> E[(PostgreSQL)]
